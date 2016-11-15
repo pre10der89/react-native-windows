@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using ReactNative.Bridge;
 
 namespace ReactNative.Views.Text
 {
@@ -153,7 +154,7 @@ namespace ReactNative.Views.Text
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override TextBlock CreateViewInstance(ThemedReactContext reactContext)
+        protected override TextBlock CreateViewInstance(ReactContext reactContext)
         {
             var textBlock = new TextBlock
             {

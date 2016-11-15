@@ -1,4 +1,5 @@
-﻿using ReactNative.UIManager;
+﻿using ReactNative.Bridge;
+using ReactNative.UIManager;
 using System;
 #if WINDOWS_UWP
 using Windows.UI.Xaml.Documents;
@@ -71,7 +72,7 @@ namespace ReactNative.Views.Text
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override Run CreateViewInstance(ThemedReactContext reactContext)
+        protected override Run CreateViewInstance(ReactContext reactContext)
         {
             return new Run();
         }

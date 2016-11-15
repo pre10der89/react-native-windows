@@ -27,7 +27,7 @@ namespace ReactNative.UIManager
     /// public interface methods:
     /// - <see cref="UpdateProperties(int, ReactStylesDiffMap)"/>
     /// - <see cref="UpdateLayout(int, int, Dimensions)"/>
-    /// - <see cref="CreateView(ThemedReactContext, int, string, ReactStylesDiffMap)"/>
+    /// - <see cref="CreateView(ReactContext, int, string, ReactStylesDiffMap)"/>
     /// - <see cref="ManageChildren(int, int[], ViewAtIndex[], int[])"/>
     /// executing all the scheduled operations at the end of the JavaScript batch.
     /// </summary>
@@ -38,13 +38,13 @@ namespace ReactNative.UIManager
     /// The <see cref="ReactContext"/> instance that is passed to views that
     /// this manager creates differs from the one that we pass to the
     /// constructor. Instead we wrap the provided instance of 
-    /// <see cref="ReactContext"/> in an instance of <see cref="ThemedReactContext"/>
+    /// <see cref="ReactContext"/> in an instance of <see cref="ReactContext"/>
     /// that additionally provides a correct theme based on the root view for
     /// a view tree that we attach newly created views to. Therefore this view
-    /// manager will create a copy of <see cref="ThemedReactContext"/> that
+    /// manager will create a copy of <see cref="ReactContext"/> that
     /// wraps the instance of <see cref="ReactContext"/> for each root view
     /// added to the manager (see
-    /// <see cref="AddRootView(int, SizeMonitoringCanvas, ThemedReactContext)"/>).
+    /// <see cref="AddRootView(int, SizeMonitoringCanvas, ReactContext)"/>).
     /// 
     /// TODO: 
     /// 1) AnimationRegistry
@@ -150,7 +150,7 @@ namespace ReactNative.UIManager
         /// <param name="tag">The tag.</param>
         /// <param name="className">The class name.</param>
         /// <param name="initialProperties">The properties.</param>
-        public void CreateView(ThemedReactContext themedContext, int tag, string className, ReactStylesDiffMap initialProperties)
+        public void CreateView(ReactContext themedContext, int tag, string className, ReactStylesDiffMap initialProperties)
         {
             DispatcherHelpers.AssertOnDispatcher();
             using (Tracer.Trace(Tracer.TRACE_TAG_REACT_VIEW, "NativeViewHierarcyManager.CreateView")
@@ -431,7 +431,7 @@ namespace ReactNative.UIManager
         /// <param name="tag">The tag.</param>
         /// <param name="view">The root view.</param>
         /// <param name="themedContext">The themed context.</param>
-        public void AddRootView(int tag, SizeMonitoringCanvas view, ThemedReactContext themedContext)
+        public void AddRootView(int tag, SizeMonitoringCanvas view, ReactContext themedContext)
         {
             AddRootViewParent(tag, view, themedContext);
         }
@@ -597,7 +597,7 @@ namespace ReactNative.UIManager
             return viewManager;
         }
 
-        private void AddRootViewParent(int tag, FrameworkElement view, ThemedReactContext themedContext)
+        private void AddRootViewParent(int tag, FrameworkElement view, ReactContext themedContext)
         {
             DispatcherHelpers.AssertOnDispatcher();
             _tagsToViews.Add(tag, view);

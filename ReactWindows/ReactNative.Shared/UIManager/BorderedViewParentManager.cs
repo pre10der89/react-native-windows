@@ -1,4 +1,5 @@
-﻿using ReactNative.UIManager.Annotations;
+﻿using ReactNative.Bridge;
+using ReactNative.UIManager.Annotations;
 using System;
 #if WINDOWS_UWP
 using Windows.UI;
@@ -185,7 +186,7 @@ namespace ReactNative.UIManager
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected sealed override Border CreateViewInstance(ThemedReactContext reactContext)
+        protected sealed override Border CreateViewInstance(ReactContext reactContext)
         {
             var inner = CreateInnerElement(reactContext);
             return new Border
@@ -200,7 +201,7 @@ namespace ReactNative.UIManager
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected abstract TFrameworkElement CreateInnerElement(ThemedReactContext reactContext);
+        protected abstract TFrameworkElement CreateInnerElement(ReactContext reactContext);
 
         /// <summary>
         /// Adds a child at the given index.

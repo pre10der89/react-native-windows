@@ -71,7 +71,7 @@ namespace ReactNative.Tests
             throw new NotImplementedException();
         }
 
-        public virtual DependencyObject CreateView(ThemedReactContext reactContext, JavaScriptResponderHandler jsResponderHandler)
+        public virtual DependencyObject CreateView(ReactContext reactContext, JavaScriptResponderHandler jsResponderHandler)
         {
             throw new NotImplementedException();
         }
@@ -81,7 +81,7 @@ namespace ReactNative.Tests
             throw new NotImplementedException();
         }
 
-        public virtual void OnDropViewInstance(ThemedReactContext reactContext, DependencyObject view)
+        public virtual void OnDropViewInstance(ReactContext reactContext, DependencyObject view)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using ReactNative.UIManager;
+﻿using ReactNative.Bridge;
+using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
 using System;
 using System.Collections;
@@ -192,7 +193,7 @@ namespace ReactNative.Views.Text
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override Span CreateViewInstance(ThemedReactContext reactContext)
+        protected override Span CreateViewInstance(ReactContext reactContext)
         {
             return new Span();
         }

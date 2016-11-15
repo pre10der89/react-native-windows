@@ -1,4 +1,5 @@
-﻿using ReactNative.Reflection;
+﻿using ReactNative.Bridge;
+using ReactNative.Reflection;
 using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
 #if WINDOWS_UWP
@@ -58,7 +59,7 @@ namespace ReactNative.Views.View
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override Canvas CreateInnerElement(ThemedReactContext reactContext)
+        protected override Canvas CreateInnerElement(ReactContext reactContext)
         {
             return new Canvas();
         }

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using ReactNative.Bridge;
 using ReactNative.Touch;
 using System;
 using System.Collections.Generic;
@@ -105,7 +106,7 @@ namespace ReactNative.UIManager
         /// <param name="jsResponderHandler">The responder handler.</param>
         /// <returns>The view.</returns>
         public TDependencyObject CreateView(
-            ThemedReactContext reactContext,
+            ReactContext reactContext,
             JavaScriptResponderHandler jsResponderHandler)
         {
             var view = CreateViewInstance(reactContext);
@@ -126,7 +127,7 @@ namespace ReactNative.UIManager
         /// <remarks>
         /// Derived classes do not need to call this base method.
         /// </remarks>
-        public virtual void OnDropViewInstance(ThemedReactContext reactContext, TDependencyObject view)
+        public virtual void OnDropViewInstance(ReactContext reactContext, TDependencyObject view)
         {
         }
 
@@ -183,7 +184,7 @@ namespace ReactNative.UIManager
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected abstract TDependencyObject CreateViewInstance(ThemedReactContext reactContext);
+        protected abstract TDependencyObject CreateViewInstance(ReactContext reactContext);
 
         /// <summary>
         /// Subclasses can override this method to install custom event 
@@ -195,7 +196,7 @@ namespace ReactNative.UIManager
         /// Consider overriding this method if your view needs to emit events
         /// besides basic touch events to JavaScript (e.g., scroll events).
         /// </remarks>
-        protected virtual void AddEventEmitters(ThemedReactContext reactContext, TDependencyObject view)
+        protected virtual void AddEventEmitters(ReactContext reactContext, TDependencyObject view)
         {
         }
 
@@ -216,12 +217,12 @@ namespace ReactNative.UIManager
             UpdateProperties((TDependencyObject)viewToUpdate, props);
         }
 
-        DependencyObject IViewManager.CreateView(ThemedReactContext reactContext, JavaScriptResponderHandler jsResponderHandler)
+        DependencyObject IViewManager.CreateView(ReactContext reactContext, JavaScriptResponderHandler jsResponderHandler)
         {
             return CreateView(reactContext, jsResponderHandler);
         }
 
-        void IViewManager.OnDropViewInstance(ThemedReactContext reactContext, DependencyObject view)
+        void IViewManager.OnDropViewInstance(ReactContext reactContext, DependencyObject view)
         {
             OnDropViewInstance(reactContext, (TDependencyObject)view);
         }

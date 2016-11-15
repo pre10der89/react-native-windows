@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using ReactNative.Bridge;
 using ReactNative.Reflection;
 using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
@@ -326,7 +327,7 @@ namespace ReactNative.Views.TextInput
         /// </summary>
         /// <param name="reactContext">The themed React Context</param>
         /// <returns>A new initialized <see cref="PasswordBox"/></returns>
-        protected override PasswordBox CreateViewInstance(ThemedReactContext reactContext)
+        protected override PasswordBox CreateViewInstance(ReactContext reactContext)
         {
             return new PasswordBox();
         }
@@ -358,7 +359,7 @@ namespace ReactNative.Views.TextInput
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The <see cref="PasswordBox"/> view instance.</param>
-        protected override void AddEventEmitters(ThemedReactContext reactContext, PasswordBox view)
+        protected override void AddEventEmitters(ReactContext reactContext, PasswordBox view)
         {
             base.AddEventEmitters(reactContext, view);
             view.PasswordChanged += OnPasswordChanged;
@@ -374,7 +375,7 @@ namespace ReactNative.Views.TextInput
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The <see cref="PasswordBox"/>.</param>
-        public override void OnDropViewInstance(ThemedReactContext reactContext, PasswordBox view)
+        public override void OnDropViewInstance(ReactContext reactContext, PasswordBox view)
         {
             base.OnDropViewInstance(reactContext, view);
             view.KeyDown -= OnKeyDown;

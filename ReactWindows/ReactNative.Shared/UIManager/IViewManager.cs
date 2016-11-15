@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using ReactNative.Bridge;
 using ReactNative.Touch;
 using System;
 using System.Collections.Generic;
@@ -74,7 +75,7 @@ namespace ReactNative.UIManager
         /// <param name="reactContext">The context.</param>
         /// <param name="responderHandler">The responder handler.</param>
         /// <returns>The view.</returns>
-        DependencyObject CreateView(ThemedReactContext reactContext, JavaScriptResponderHandler responderHandler);
+        DependencyObject CreateView(ReactContext reactContext, JavaScriptResponderHandler responderHandler);
 
         /// <summary>
         /// Called when view is detached from view hierarchy and allows for 
@@ -86,7 +87,7 @@ namespace ReactNative.UIManager
         /// <remarks>
         /// Derived classes do not need to call this base method.
         /// </remarks>
-        void OnDropViewInstance(ThemedReactContext reactContext, DependencyObject view);
+        void OnDropViewInstance(ReactContext reactContext, DependencyObject view);
 
         /// <summary>
         /// This method should return the subclass of <see cref="ReactShadowNode"/>

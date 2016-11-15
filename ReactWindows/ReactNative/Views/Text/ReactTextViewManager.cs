@@ -1,4 +1,5 @@
-﻿using ReactNative.UIManager;
+﻿using ReactNative.Bridge;
+using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
 using System.Linq;
 using Windows.UI.Xaml;
@@ -151,7 +152,7 @@ namespace ReactNative.Views.Text
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override RichTextBlock CreateViewInstance(ThemedReactContext reactContext)
+        protected override RichTextBlock CreateViewInstance(ReactContext reactContext)
         {
             var richTextBlock = new RichTextBlock
             {

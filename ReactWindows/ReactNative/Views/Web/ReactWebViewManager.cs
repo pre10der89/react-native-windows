@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using ReactNative.Bridge;
 using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
 using ReactNative.Views.Web.Events;
@@ -194,7 +195,7 @@ namespace ReactNative.Views.Web
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The view.</param>
-        public override void OnDropViewInstance(ThemedReactContext reactContext, WebView view)
+        public override void OnDropViewInstance(ReactContext reactContext, WebView view)
         {
             base.OnDropViewInstance(reactContext, view);
             view.NavigationCompleted -= OnNavigationCompleted;
@@ -206,7 +207,7 @@ namespace ReactNative.Views.Web
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override WebView CreateViewInstance(ThemedReactContext reactContext)
+        protected override WebView CreateViewInstance(ReactContext reactContext)
         {
             return new WebView();
         }
@@ -217,7 +218,7 @@ namespace ReactNative.Views.Web
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The view instance.</param>
-        protected override void AddEventEmitters(ThemedReactContext reactContext, WebView view)
+        protected override void AddEventEmitters(ReactContext reactContext, WebView view)
         {
             base.AddEventEmitters(reactContext, view);
             view.NavigationCompleted += OnNavigationCompleted;

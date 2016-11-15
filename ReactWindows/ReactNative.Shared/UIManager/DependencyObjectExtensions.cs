@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReactNative.Bridge;
+using System;
 using System.Runtime.CompilerServices;
 #if WINDOWS_UWP
 using Windows.UI.Xaml;
@@ -136,7 +137,7 @@ namespace ReactNative.UIManager
             return s_properties.TryGetValue(view, out elementData) && elementData.Tag.HasValue;
         }
 
-        internal static void SetReactContext(this DependencyObject view, ThemedReactContext context)
+        internal static void SetReactContext(this DependencyObject view, ReactContext context)
         {
             if (view == null)
                 throw new ArgumentNullException(nameof(view));
@@ -145,7 +146,7 @@ namespace ReactNative.UIManager
         }
 
         /// <summary>
-        /// Gets the <see cref="ThemedReactContext"/> associated with the view
+        /// Gets the <see cref="ReactContext"/> associated with the view
         /// instance.
         /// </summary>
         /// <param name="view">The view instance.</param>
@@ -153,7 +154,7 @@ namespace ReactNative.UIManager
         /// <exception cref="InvalidOperationException">
         /// Thrown if context is not available for the view.
         /// </exception>
-        public static ThemedReactContext GetReactContext(this DependencyObject view)
+        public static ReactContext GetReactContext(this DependencyObject view)
         {
             if (view == null)
                 throw new ArgumentNullException(nameof(view));
@@ -180,7 +181,7 @@ namespace ReactNative.UIManager
 
         class DependencyObjectData
         {
-            public ThemedReactContext Context { get; set; }
+            public ReactContext Context { get; set; }
 
             public PointerEvents? PointerEvents { get; set; }
 

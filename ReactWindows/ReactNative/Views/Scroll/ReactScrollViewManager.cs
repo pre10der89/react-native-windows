@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using ReactNative.Bridge;
 using ReactNative.UIManager;
 using ReactNative.UIManager.Annotations;
 using ReactNative.UIManager.Events;
@@ -313,7 +314,7 @@ namespace ReactNative.Views.Scroll
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The view.</param>
-        public override void OnDropViewInstance(ThemedReactContext reactContext, ScrollViewer view)
+        public override void OnDropViewInstance(ReactContext reactContext, ScrollViewer view)
         {
             base.OnDropViewInstance(reactContext, view);
 
@@ -354,7 +355,7 @@ namespace ReactNative.Views.Scroll
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <returns>The view instance.</returns>
-        protected override ScrollViewer CreateViewInstance(ThemedReactContext reactContext)
+        protected override ScrollViewer CreateViewInstance(ReactContext reactContext)
         {
             var scrollViewerData = new ScrollViewerData();
 
@@ -376,7 +377,7 @@ namespace ReactNative.Views.Scroll
         /// </summary>
         /// <param name="reactContext">The React context.</param>
         /// <param name="view">The view instance.</param>
-        protected override void AddEventEmitters(ThemedReactContext reactContext, ScrollViewer view)
+        protected override void AddEventEmitters(ReactContext reactContext, ScrollViewer view)
         {
             base.AddEventEmitters(reactContext, view);
             view.DirectManipulationCompleted += OnDirectManipulationCompleted;
