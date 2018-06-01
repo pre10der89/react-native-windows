@@ -1,4 +1,4 @@
-﻿# React Native plugin for Universal Windows Platform (UWP)
+﻿# React Native plugin for Universal Windows Platform (UWP) Test
 
 ![Hero Image with Logo](./.github/hero.png)
 
